@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrackerLibrary
+namespace TrackerLibrary.Models
 {
     /// <summary>
     /// Represents an entire tournament
     /// </summary>
 	public class TournamentModel
-	{
+    {
         /// <summary>
         /// The name of the specific tournament. 
         /// </summary>

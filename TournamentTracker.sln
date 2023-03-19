@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrackerLibrary", "TrackerLi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrackerUI", "TrackerUI\TrackerUI.csproj", "{9BFC731D-82EA-4AB4-8A64-611AE7EBFE5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateTournamentForm", "CreateTournamentForm\CreateTournamentForm.csproj", "{396A9512-9605-4605-9BE5-E4B8DC0120F7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{9BFC731D-82EA-4AB4-8A64-611AE7EBFE5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BFC731D-82EA-4AB4-8A64-611AE7EBFE5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BFC731D-82EA-4AB4-8A64-611AE7EBFE5A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{396A9512-9605-4605-9BE5-E4B8DC0120F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{396A9512-9605-4605-9BE5-E4B8DC0120F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{396A9512-9605-4605-9BE5-E4B8DC0120F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{396A9512-9605-4605-9BE5-E4B8DC0120F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

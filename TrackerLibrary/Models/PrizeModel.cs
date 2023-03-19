@@ -4,13 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrackerLibrary
+namespace TrackerLibrary.Models
 {
     /// <summary>
     /// Represents one prize in the tournament.
     /// </summary>
 	public class PrizeModel
-	{
+    {
+        /// <summary>
+        /// The unique Id of this prize.
+        /// </summary>
+        public int Id { get; set; }
         /// <summary>
         /// The number value for what place a team finished.
         /// ex: 1, 2, 3...
