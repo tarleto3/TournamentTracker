@@ -40,10 +40,9 @@ namespace TrackerUI
 				model.PlaceNumber = Convert.ToInt32(TXT_PlaceNumber.Text);
 				model.PrizeAmount = Convert.ToDecimal(TXT_PrizeAmount.Text);
 				model.PrizePercentage = Convert.ToDouble(TXT_PrizePercent.Text);
-				foreach (IDataConnection db in GlobalConfig.Connections)
-				{
-					db.CreatePrize(model);
-				}
+
+				GlobalConfig.Connection.CreatePrize(model);
+
 				TXT_PlaceName.Text = "";
 				TXT_PlaceNumber.Text = "";
 				TXT_PrizeAmount.Text = "0";

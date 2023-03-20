@@ -1,3 +1,5 @@
+using static TrackerLibrary.Enums;
+
 namespace TrackerUI
 {
 	internal static class Program
@@ -13,7 +15,7 @@ namespace TrackerUI
 			ApplicationConfiguration.Initialize();
 
 			//Initialize Database Connections
-			TrackerLibrary.GlobalConfig.InitializeConnections(true, true);
+			TrackerLibrary.GlobalConfig.InitializeConnections(DatabaseType.Sql) ;
 			//Application.Run(new TournamentDashboard());
 			Application.Run(new Create_Prize_Form());
 		}
