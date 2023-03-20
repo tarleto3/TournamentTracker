@@ -35,17 +35,18 @@
 			LBL_SelectTeamMember = new Label();
 			BTN_AddTeamMember = new Button();
 			GRP_AddNewMember = new GroupBox();
-			TXT_FirstName = new TextBox();
-			LBL_FirstName = new Label();
-			TXT_LastName = new TextBox();
-			LBL_LastName = new Label();
-			TXT_Email = new TextBox();
-			LBL_Email = new Label();
+			BTN_CreateMember = new Button();
 			TXT_Cell = new TextBox();
 			LBL_Cell = new Label();
-			BTN_CreateMember = new Button();
+			TXT_Email = new TextBox();
+			LBL_Email = new Label();
+			TXT_LastName = new TextBox();
+			LBL_LastName = new Label();
+			TXT_FirstName = new TextBox();
+			LBL_FirstName = new Label();
 			LSB_TeamMembers = new ListBox();
 			BTN_DeleteSelectedMember = new Button();
+			BTN_CreateTeam = new Button();
 			GRP_AddNewMember.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -130,61 +131,21 @@
 			GRP_AddNewMember.TabStop = false;
 			GRP_AddNewMember.Text = "Add New Member";
 			// 
-			// TXT_FirstName
+			// BTN_CreateMember
 			// 
-			TXT_FirstName.Location = new Point(156, 46);
-			TXT_FirstName.Name = "TXT_FirstName";
-			TXT_FirstName.Size = new Size(159, 43);
-			TXT_FirstName.TabIndex = 11;
-			TXT_FirstName.TextChanged += TXT_Team1Score_TextChanged;
-			// 
-			// LBL_FirstName
-			// 
-			LBL_FirstName.AutoSize = true;
-			LBL_FirstName.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-			LBL_FirstName.ForeColor = SystemColors.MenuHighlight;
-			LBL_FirstName.Location = new Point(6, 52);
-			LBL_FirstName.Name = "LBL_FirstName";
-			LBL_FirstName.Size = new Size(144, 37);
-			LBL_FirstName.TabIndex = 10;
-			LBL_FirstName.Text = "First Name";
-			LBL_FirstName.Click += LBL_Team1Score_Click;
-			// 
-			// TXT_LastName
-			// 
-			TXT_LastName.Location = new Point(156, 95);
-			TXT_LastName.Name = "TXT_LastName";
-			TXT_LastName.Size = new Size(159, 43);
-			TXT_LastName.TabIndex = 13;
-			// 
-			// LBL_LastName
-			// 
-			LBL_LastName.AutoSize = true;
-			LBL_LastName.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-			LBL_LastName.ForeColor = SystemColors.MenuHighlight;
-			LBL_LastName.Location = new Point(6, 101);
-			LBL_LastName.Name = "LBL_LastName";
-			LBL_LastName.Size = new Size(142, 37);
-			LBL_LastName.TabIndex = 12;
-			LBL_LastName.Text = "Last Name";
-			// 
-			// TXT_Email
-			// 
-			TXT_Email.Location = new Point(156, 144);
-			TXT_Email.Name = "TXT_Email";
-			TXT_Email.Size = new Size(159, 43);
-			TXT_Email.TabIndex = 15;
-			// 
-			// LBL_Email
-			// 
-			LBL_Email.AutoSize = true;
-			LBL_Email.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-			LBL_Email.ForeColor = SystemColors.MenuHighlight;
-			LBL_Email.Location = new Point(6, 150);
-			LBL_Email.Name = "LBL_Email";
-			LBL_Email.Size = new Size(82, 37);
-			LBL_Email.TabIndex = 14;
-			LBL_Email.Text = "Email";
+			BTN_CreateMember.FlatAppearance.BorderColor = Color.Silver;
+			BTN_CreateMember.FlatAppearance.MouseDownBackColor = Color.FromArgb(102, 102, 102);
+			BTN_CreateMember.FlatAppearance.MouseOverBackColor = Color.FromArgb(242, 242, 242);
+			BTN_CreateMember.FlatStyle = FlatStyle.Flat;
+			BTN_CreateMember.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point);
+			BTN_CreateMember.ForeColor = SystemColors.MenuHighlight;
+			BTN_CreateMember.Location = new Point(67, 278);
+			BTN_CreateMember.Name = "BTN_CreateMember";
+			BTN_CreateMember.Size = new Size(185, 41);
+			BTN_CreateMember.TabIndex = 19;
+			BTN_CreateMember.Text = "Create Member";
+			BTN_CreateMember.UseVisualStyleBackColor = true;
+			BTN_CreateMember.Click += BTN_CreateMember_Click;
 			// 
 			// TXT_Cell
 			// 
@@ -204,20 +165,61 @@
 			LBL_Cell.TabIndex = 16;
 			LBL_Cell.Text = "Cell";
 			// 
-			// BTN_CreateMember
+			// TXT_Email
 			// 
-			BTN_CreateMember.FlatAppearance.BorderColor = Color.Silver;
-			BTN_CreateMember.FlatAppearance.MouseDownBackColor = Color.FromArgb(102, 102, 102);
-			BTN_CreateMember.FlatAppearance.MouseOverBackColor = Color.FromArgb(242, 242, 242);
-			BTN_CreateMember.FlatStyle = FlatStyle.Flat;
-			BTN_CreateMember.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point);
-			BTN_CreateMember.ForeColor = SystemColors.MenuHighlight;
-			BTN_CreateMember.Location = new Point(67, 278);
-			BTN_CreateMember.Name = "BTN_CreateMember";
-			BTN_CreateMember.Size = new Size(185, 41);
-			BTN_CreateMember.TabIndex = 19;
-			BTN_CreateMember.Text = "Create Member";
-			BTN_CreateMember.UseVisualStyleBackColor = true;
+			TXT_Email.Location = new Point(156, 144);
+			TXT_Email.Name = "TXT_Email";
+			TXT_Email.Size = new Size(159, 43);
+			TXT_Email.TabIndex = 15;
+			// 
+			// LBL_Email
+			// 
+			LBL_Email.AutoSize = true;
+			LBL_Email.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+			LBL_Email.ForeColor = SystemColors.MenuHighlight;
+			LBL_Email.Location = new Point(6, 150);
+			LBL_Email.Name = "LBL_Email";
+			LBL_Email.Size = new Size(82, 37);
+			LBL_Email.TabIndex = 14;
+			LBL_Email.Text = "Email";
+			// 
+			// TXT_LastName
+			// 
+			TXT_LastName.Location = new Point(156, 95);
+			TXT_LastName.Name = "TXT_LastName";
+			TXT_LastName.Size = new Size(159, 43);
+			TXT_LastName.TabIndex = 13;
+			// 
+			// LBL_LastName
+			// 
+			LBL_LastName.AutoSize = true;
+			LBL_LastName.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+			LBL_LastName.ForeColor = SystemColors.MenuHighlight;
+			LBL_LastName.Location = new Point(6, 101);
+			LBL_LastName.Name = "LBL_LastName";
+			LBL_LastName.Size = new Size(142, 37);
+			LBL_LastName.TabIndex = 12;
+			LBL_LastName.Text = "Last Name";
+			// 
+			// TXT_FirstName
+			// 
+			TXT_FirstName.Location = new Point(156, 46);
+			TXT_FirstName.Name = "TXT_FirstName";
+			TXT_FirstName.Size = new Size(159, 43);
+			TXT_FirstName.TabIndex = 11;
+			TXT_FirstName.TextChanged += TXT_Team1Score_TextChanged;
+			// 
+			// LBL_FirstName
+			// 
+			LBL_FirstName.AutoSize = true;
+			LBL_FirstName.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+			LBL_FirstName.ForeColor = SystemColors.MenuHighlight;
+			LBL_FirstName.Location = new Point(6, 52);
+			LBL_FirstName.Name = "LBL_FirstName";
+			LBL_FirstName.Size = new Size(144, 37);
+			LBL_FirstName.TabIndex = 10;
+			LBL_FirstName.Text = "First Name";
+			LBL_FirstName.Click += LBL_Team1Score_Click;
 			// 
 			// LSB_TeamMembers
 			// 
@@ -244,12 +246,28 @@
 			BTN_DeleteSelectedMember.Text = "Delete Selected";
 			BTN_DeleteSelectedMember.UseVisualStyleBackColor = true;
 			// 
+			// BTN_CreateTeam
+			// 
+			BTN_CreateTeam.FlatAppearance.BorderColor = Color.Silver;
+			BTN_CreateTeam.FlatAppearance.MouseDownBackColor = Color.FromArgb(102, 102, 102);
+			BTN_CreateTeam.FlatAppearance.MouseOverBackColor = Color.FromArgb(242, 242, 242);
+			BTN_CreateTeam.FlatStyle = FlatStyle.Flat;
+			BTN_CreateTeam.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point);
+			BTN_CreateTeam.ForeColor = SystemColors.MenuHighlight;
+			BTN_CreateTeam.Location = new Point(313, 743);
+			BTN_CreateTeam.Name = "BTN_CreateTeam";
+			BTN_CreateTeam.Size = new Size(206, 65);
+			BTN_CreateTeam.TabIndex = 20;
+			BTN_CreateTeam.Text = "Create Team";
+			BTN_CreateTeam.UseVisualStyleBackColor = true;
+			// 
 			// CreateTeam
 			// 
 			AutoScaleDimensions = new SizeF(15F, 37F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.White;
-			ClientSize = new Size(1025, 747);
+			ClientSize = new Size(1025, 831);
+			Controls.Add(BTN_CreateTeam);
 			Controls.Add(BTN_DeleteSelectedMember);
 			Controls.Add(LSB_TeamMembers);
 			Controls.Add(GRP_AddNewMember);
@@ -289,5 +307,6 @@
 		private Label LBL_Email;
 		private ListBox LSB_TeamMembers;
 		private Button BTN_DeleteSelectedMember;
+		private Button BTN_CreateTeam;
 	}
 }

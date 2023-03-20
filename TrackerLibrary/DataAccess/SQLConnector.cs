@@ -12,13 +12,17 @@ namespace TrackerLibrary.DataAccess
 {
     public class SQLConnector : IDataConnection
     {
-        // TODO - Make the CreatePrize method acutually save to the databse. 
-        /// <summary>
-        /// Saves a prize to the database. 
-        /// </summary>
-        /// <param name="model">The prize information</param>
-        /// <returns>The prize information, includingg the unique identifier.</returns>
-        public PrizeModel CreatePrize(PrizeModel model)
+		public PersonModel CreatePerson(PersonModel model)
+		{
+			throw new NotImplementedException();
+		}
+
+		/// <summary>
+		/// Saves a prize to the database. 
+		/// </summary>
+		/// <param name="model">The prize information</param>
+		/// <returns>The prize information, includingg the unique identifier.</returns>
+		public PrizeModel CreatePrize(PrizeModel model)
         {
 			using (IDbConnection connection = new SqlConnection(GlobalConfig.CnnString("Tournaments")))
 			{

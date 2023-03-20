@@ -12,6 +12,7 @@ namespace TrackerLibrary.DataAccess.TextHelpers
 	{
 		public static string FullFilePath(this string fileName)
 		{
+			string test = $"{ConfigurationManager.AppSettings["filePath"]}\\{fileName}";
 			return $"{ConfigurationManager.AppSettings["filePath"]}\\{fileName}";
 		}
 
@@ -51,7 +52,7 @@ namespace TrackerLibrary.DataAccess.TextHelpers
 
 			foreach (PrizeModel p in models) 
 			{
-				lines.Add($"{p.Id}, { p.PlaceNumber}, {p.PlaceName}, {p.PrizeAmount}, {p.PrizePercentage}");
+				lines.Add($"{p.Id},{p.PlaceNumber},{p.PlaceName},{p.PrizeAmount},{p.PrizePercentage}");
 			}
 
 			File.WriteAllLines(fileName.FullFilePath(), lines);
