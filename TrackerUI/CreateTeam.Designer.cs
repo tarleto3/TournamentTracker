@@ -112,6 +112,7 @@
 			BTN_AddTeamMember.TabIndex = 16;
 			BTN_AddTeamMember.Text = "Add Member";
 			BTN_AddTeamMember.UseVisualStyleBackColor = true;
+			BTN_AddTeamMember.Click += BTN_AddTeamMember_Click;
 			// 
 			// GRP_AddNewMember
 			// 
@@ -245,6 +246,7 @@
 			BTN_DeleteSelectedMember.TabIndex = 23;
 			BTN_DeleteSelectedMember.Text = "Delete Selected";
 			BTN_DeleteSelectedMember.UseVisualStyleBackColor = true;
+			BTN_DeleteSelectedMember.Click += BTN_DeleteSelectedMember_Click;
 			// 
 			// BTN_CreateTeam
 			// 

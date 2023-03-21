@@ -14,8 +14,8 @@ namespace TrackerUI
 {
 	public partial class CreateTeam : Form
 	{
-		private List<PersonModel> availableTeamMembers = = GlobalConfig.Connection.GetPerson_All();
-		private List<PersonModel> selectedTeamMembers = new List<PersonModel>();
+		private BindingList<PersonModel> availableTeamMembers = GlobalConfig.Connection.GetPerson_All();
+		private BindingList<PersonModel> selectedTeamMembers = new BindingList<PersonModel>();
 		private void WireUpLists()
 		{
 			CMB_SelectTeamMember.DataSource = availableTeamMembers;
@@ -67,7 +67,7 @@ namespace TrackerUI
 		{
 			bool output = true;
 
-			if(TXT_FirstName.Text.Length == 0)
+			if (TXT_FirstName.Text.Length == 0)
 			{
 				output = false;
 			}
@@ -84,6 +84,22 @@ namespace TrackerUI
 				output = false;
 			}
 			return output;
+		}
+
+		private void BTN_AddTeamMember_Click(object sender, EventArgs e)
+		{
+			PersonModel p = (PersonModel)CMB_SelectTeamMember.SelectedItem;
+
+			availableTeamMembers.Remove(p);
+			selectedTeamMembers.Add(p);
+		}
+
+		private void BTN_DeleteSelectedMember_Click(object sender, EventArgs e)
+		{
+			PersonModel p = (PersonModel)LSB_TeamMembers.SelectedItem;
+
+			availableTeamMembers.Add(p);
+			selectedTeamMembers.Remove(p);
 		}
 	}
 }

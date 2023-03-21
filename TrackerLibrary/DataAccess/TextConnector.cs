@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TrackerLibrary.Models;
 using TrackerLibrary.DataAccess.TextHelpers;
+using System.ComponentModel;
 
 namespace TrackerLibrary.DataAccess
 {
@@ -53,7 +54,7 @@ namespace TrackerLibrary.DataAccess
             return model;
         }
 
-		public List<PersonModel> GetPerson_All()
+		public BindingList<PersonModel> GetPerson_All()
 		{
 			throw new NotImplementedException();
 		}

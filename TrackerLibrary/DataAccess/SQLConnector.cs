@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -17,8 +18,8 @@ namespace TrackerLibrary.DataAccess
 		/// </summary>
 		/// <param name="model">The Person model to be saved into the database.</param>
 		/// <returns></returns>
-		
-		private string db = "Tournaments"
+
+		private string db = "Tournaments";
 		public PersonModel CreatePerson(PersonModel model)
 		{
 			using (IDbConnection connection = new SqlConnection(GlobalConfig.CnnString(db)))
@@ -62,14 +63,16 @@ namespace TrackerLibrary.DataAccess
 			}
 		}
 
-		public List<PersonModel> GetPerson_All()
+		public BindingList<PersonModel> GetPerson_All()
 		{
-			List<PersonModel> people;
+			List<PersonModel> people = new List<PersonModel>();
+			BindingList<PersonModel> bindingPeople;
 			using (IDbConnection connection = new SqlConnection(GlobalConfig.CnnString(db)))
 			{
 				people = connection.Query<PersonModel>("dbo.spPeople_GetAll").ToList();
 			}
-			return people;
+			bindingPeople = new BindingList<PersonModel>(people);
+			return bindingPeople;
 		}
 	}
 }
