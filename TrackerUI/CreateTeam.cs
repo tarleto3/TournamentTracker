@@ -14,9 +14,20 @@ namespace TrackerUI
 {
 	public partial class CreateTeam : Form
 	{
+		private List<PersonModel> availableTeamMembers = = GlobalConfig.Connection.GetPerson_All();
+		private List<PersonModel> selectedTeamMembers = new List<PersonModel>();
+		private void WireUpLists()
+		{
+			CMB_SelectTeamMember.DataSource = availableTeamMembers;
+			CMB_SelectTeamMember.DisplayMember = "FullName";
+
+			LSB_TeamMembers.DataSource = selectedTeamMembers;
+			LSB_TeamMembers.DisplayMember = "FullName";
+		}
 		public CreateTeam()
 		{
 			InitializeComponent();
+			WireUpLists();
 		}
 
 		private void LBL_Team1Score_Click(object sender, EventArgs e)
@@ -40,6 +51,11 @@ namespace TrackerUI
 				p.CellphoneNumber = TXT_Cell.Text;
 
 				GlobalConfig.Connection.CreatePerson(p);
+
+				TXT_FirstName.Text = "";
+				TXT_LastName.Text = "";
+				TXT_Email.Text = "";
+				TXT_Cell.Text = "";
 			}
 			else
 			{
@@ -67,6 +83,7 @@ namespace TrackerUI
 			{
 				output = false;
 			}
+			return output;
 		}
 	}
 }
