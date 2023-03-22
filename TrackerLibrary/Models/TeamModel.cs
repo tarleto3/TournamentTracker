@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace TrackerLibrary.Models
     /// </summary>
 	public class TeamModel
     {
+        public int Id { get; set; }
         /// <summary>
         /// The name of this team.
         /// </summary>
@@ -18,7 +20,7 @@ namespace TrackerLibrary.Models
         /// <summary>
         /// The list of members in the team. 
         /// </summary>
-        public List<PersonModel> TeamMembers { get; set; } = new List<PersonModel>();
+        public BindingList<PersonModel> TeamMembers { get; set; } = new BindingList<PersonModel>();
 
     }
 }

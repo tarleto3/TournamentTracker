@@ -45,7 +45,7 @@
 			TXT_FirstName = new TextBox();
 			LBL_FirstName = new Label();
 			LSB_TeamMembers = new ListBox();
-			BTN_DeleteSelectedMember = new Button();
+			BTN_RemoveSelectedMember = new Button();
 			BTN_CreateTeam = new Button();
 			GRP_AddNewMember.SuspendLayout();
 			SuspendLayout();
@@ -232,21 +232,21 @@
 			LSB_TeamMembers.Size = new Size(302, 594);
 			LSB_TeamMembers.TabIndex = 18;
 			// 
-			// BTN_DeleteSelectedMember
+			// BTN_RemoveSelectedMember
 			// 
-			BTN_DeleteSelectedMember.FlatAppearance.BorderColor = Color.Silver;
-			BTN_DeleteSelectedMember.FlatAppearance.MouseDownBackColor = Color.FromArgb(102, 102, 102);
-			BTN_DeleteSelectedMember.FlatAppearance.MouseOverBackColor = Color.FromArgb(242, 242, 242);
-			BTN_DeleteSelectedMember.FlatStyle = FlatStyle.Flat;
-			BTN_DeleteSelectedMember.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point);
-			BTN_DeleteSelectedMember.ForeColor = SystemColors.MenuHighlight;
-			BTN_DeleteSelectedMember.Location = new Point(772, 324);
-			BTN_DeleteSelectedMember.Name = "BTN_DeleteSelectedMember";
-			BTN_DeleteSelectedMember.Size = new Size(139, 86);
-			BTN_DeleteSelectedMember.TabIndex = 23;
-			BTN_DeleteSelectedMember.Text = "Delete Selected";
-			BTN_DeleteSelectedMember.UseVisualStyleBackColor = true;
-			BTN_DeleteSelectedMember.Click += BTN_DeleteSelectedMember_Click;
+			BTN_RemoveSelectedMember.FlatAppearance.BorderColor = Color.Silver;
+			BTN_RemoveSelectedMember.FlatAppearance.MouseDownBackColor = Color.FromArgb(102, 102, 102);
+			BTN_RemoveSelectedMember.FlatAppearance.MouseOverBackColor = Color.FromArgb(242, 242, 242);
+			BTN_RemoveSelectedMember.FlatStyle = FlatStyle.Flat;
+			BTN_RemoveSelectedMember.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point);
+			BTN_RemoveSelectedMember.ForeColor = SystemColors.MenuHighlight;
+			BTN_RemoveSelectedMember.Location = new Point(772, 324);
+			BTN_RemoveSelectedMember.Name = "BTN_RemoveSelectedMember";
+			BTN_RemoveSelectedMember.Size = new Size(139, 86);
+			BTN_RemoveSelectedMember.TabIndex = 23;
+			BTN_RemoveSelectedMember.Text = "Remove Selected";
+			BTN_RemoveSelectedMember.UseVisualStyleBackColor = true;
+			BTN_RemoveSelectedMember.Click += BTN_DeleteSelectedMember_Click;
 			// 
 			// BTN_CreateTeam
 			// 
@@ -262,6 +262,7 @@
 			BTN_CreateTeam.TabIndex = 20;
 			BTN_CreateTeam.Text = "Create Team";
 			BTN_CreateTeam.UseVisualStyleBackColor = true;
+			BTN_CreateTeam.Click += BTN_CreateTeam_Click;
 			// 
 			// CreateTeam
 			// 
@@ -270,7 +271,7 @@
 			BackColor = Color.White;
 			ClientSize = new Size(1025, 831);
 			Controls.Add(BTN_CreateTeam);
-			Controls.Add(BTN_DeleteSelectedMember);
+			Controls.Add(BTN_RemoveSelectedMember);
 			Controls.Add(LSB_TeamMembers);
 			Controls.Add(GRP_AddNewMember);
 			Controls.Add(BTN_AddTeamMember);
@@ -308,7 +309,7 @@
 		private TextBox TXT_Email;
 		private Label LBL_Email;
 		private ListBox LSB_TeamMembers;
-		private Button BTN_DeleteSelectedMember;
+		private Button BTN_RemoveSelectedMember;
 		private Button BTN_CreateTeam;
 	}
 }

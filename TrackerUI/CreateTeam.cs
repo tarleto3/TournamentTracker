@@ -52,6 +52,8 @@ namespace TrackerUI
 
 				GlobalConfig.Connection.CreatePerson(p);
 
+				selectedTeamMembers.Add(p);
+
 				TXT_FirstName.Text = "";
 				TXT_LastName.Text = "";
 				TXT_Email.Text = "";
@@ -89,17 +91,33 @@ namespace TrackerUI
 		private void BTN_AddTeamMember_Click(object sender, EventArgs e)
 		{
 			PersonModel p = (PersonModel)CMB_SelectTeamMember.SelectedItem;
-
-			availableTeamMembers.Remove(p);
-			selectedTeamMembers.Add(p);
+			if (p != null)
+			{
+				availableTeamMembers.Remove(p);
+				selectedTeamMembers.Add(p);
+			}
 		}
 
 		private void BTN_DeleteSelectedMember_Click(object sender, EventArgs e)
 		{
 			PersonModel p = (PersonModel)LSB_TeamMembers.SelectedItem;
+			if (p != null)
+			{
+				availableTeamMembers.Add(p);
+				selectedTeamMembers.Remove(p);
+			}
+		}
 
-			availableTeamMembers.Add(p);
-			selectedTeamMembers.Remove(p);
+		private void BTN_CreateTeam_Click(object sender, EventArgs e)
+		{
+			TeamModel t = new TeamModel();
+
+			t.TeamName = TXT_TeamName.Text;
+			t.TeamMembers = selectedTeamMembers;
+
+			GlobalConfig.Connection.CreateTeam(t);
+
+			// TODO - Reset Form after Creation of Team.
 		}
 	}
 }

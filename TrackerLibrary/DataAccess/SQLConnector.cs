@@ -11,8 +11,8 @@ using TrackerLibrary.Models;
 
 namespace TrackerLibrary.DataAccess
 {
-    public class SQLConnector : IDataConnection
-    {
+	public class SQLConnector : IDataConnection
+	{
 		/// <summary>
 		/// Creates a person in the database
 		/// </summary>
@@ -45,7 +45,7 @@ namespace TrackerLibrary.DataAccess
 		/// <param name="model">The prize information</param>
 		/// <returns>The prize information, includingg the unique identifier.</returns>
 		public PrizeModel CreatePrize(PrizeModel model)
-        {
+		{
 			using (IDbConnection connection = new SqlConnection(GlobalConfig.CnnString(db)))
 			{
 				var p = new DynamicParameters();
@@ -58,6 +58,32 @@ namespace TrackerLibrary.DataAccess
 				connection.Execute("[dbo].[spPrizes_Insert]", p, commandType: CommandType.StoredProcedure);
 
 				model.Id = p.Get<int>("@Id");
+
+				return model;
+			}
+		}
+
+		public TeamModel CreateTeam(TeamModel model)
+		{
+			using (IDbConnection connection = new SqlConnection(GlobalConfig.CnnString(db)))
+			{
+				var p = new DynamicParameters();
+				p.Add("@TeamName", model.TeamName);				
+				p.Add("@Id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+				connection.Execute("[dbo].[spTeams_Insert]", p, commandType: CommandType.StoredProcedure);
+
+				model.Id = p.Get<int>("@Id");
+
+				foreach(PersonModel tm in model.TeamMembers) 
+				{
+					p = new DynamicParameters();
+					p.Add("@TeamId", model.Id);
+					p.Add("@PersonId", tm.Id);
+
+					connection.Execute("[dbo].[spTeamMembers_Insert]", p, commandType: CommandType.StoredProcedure);
+
+				}
 
 				return model;
 			}
