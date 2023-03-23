@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,10 @@ namespace TrackerLibrary.Models
 	public class TournamentModel
     {
         /// <summary>
+        /// The Id of the Tournament;
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
         /// The name of the specific tournament. 
         /// </summary>
         public string TournamentName { get; set; }
@@ -22,11 +27,11 @@ namespace TrackerLibrary.Models
         /// <summary>
         /// The list of teams that are entered into the tournament.
         /// </summary>
-        public List<TeamModel> EnteredTeams { get; set; } = new List<TeamModel>();
+        public BindingList<TeamModel> EnteredTeams { get; set; } = new BindingList<TeamModel>();
         /// <summary>
         /// The list of prizes available for winners of the tournament.
         /// </summary>
-        public List<PrizeModel> Prizes { get; set; } = new List<PrizeModel>();
+        public BindingList<PrizeModel> Prizes { get; set; } = new BindingList<PrizeModel>();
         /// <summary>
         /// The list of the different matchups for the tournament. 
         /// </summary>

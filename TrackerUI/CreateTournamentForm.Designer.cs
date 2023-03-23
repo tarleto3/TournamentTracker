@@ -251,6 +251,7 @@
 			BTN_CreateTournament.TabIndex = 23;
 			BTN_CreateTournament.Text = "Create Tournament";
 			BTN_CreateTournament.UseVisualStyleBackColor = true;
+			BTN_CreateTournament.Click += BTN_CreateTournament_Click;
 			// 
 			// CreateTournamentForm
 			// 

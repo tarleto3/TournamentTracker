@@ -128,5 +128,31 @@ namespace TrackerUI
 				prizes.Remove(p);
 			}
 		}
+
+		private void BTN_CreateTournament_Click(object sender, EventArgs e)
+		{
+			decimal fee;
+
+			bool feeIsDecimal = decimal.TryParse(TXT_EntryFee.Text, out fee);
+
+			if (!feeIsDecimal)
+			{
+				MessageBox.Show("Please enter a valid entry fee as a decimal number.", "Invalid Fee",
+					MessageBoxButtons.OK,
+					MessageBoxIcon.Error);
+				return;
+			}
+
+			TournamentModel tm = new TournamentModel();
+
+			tm.TournamentName = TXT_TournamentName.Text;
+			tm.EntryFee = fee;
+
+			tm.Prizes = prizes;
+			tm.EnteredTeams = selectedTeams;
+
+			GlobalConfig.Connection.CreateTournament(tm);
+			// TODO - Create Matchups
+		}
 	}
 }
