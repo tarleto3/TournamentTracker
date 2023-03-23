@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using TrackerLibrary.Models;
@@ -100,5 +101,26 @@ namespace TrackerLibrary.DataAccess
 			bindingPeople = new BindingList<PersonModel>(people);
 			return bindingPeople;
 		}
-	}
+
+        public BindingList<TeamModel> GetTeam_All()
+        {
+            List<TeamModel> output = new List<TeamModel>();
+            BindingList<TeamModel> bindingPeople;
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.CnnString(db)))
+            {
+                output = connection.Query<TeamModel>("dbo.spTeam_GetAll").ToList();
+
+                foreach (TeamModel team in output)
+                {
+                    var p = new DynamicParameters();
+                    p.Add("@TeamId", team.Id);
+
+                    List<PersonModel> temp = connection.Query<PersonModel>("dbo.spTeamMembers_GetByTeam", p, commandType: CommandType.StoredProcedure).ToList();
+					team.TeamMembers = new BindingList<PersonModel>(temp);
+                }
+            }
+            bindingPeople = new BindingList<TeamModel>(output);
+            return bindingPeople;
+        }
+    }
 }
