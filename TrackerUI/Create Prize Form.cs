@@ -15,9 +15,11 @@ namespace TrackerUI
 {
 	public partial class Create_Prize_Form : Form
 	{
-		public Create_Prize_Form()
+		IPrizeRequestor callingForm;
+		public Create_Prize_Form(IPrizeRequestor caller)
 		{
 			InitializeComponent();
+			callingForm = caller;
 		}
 
 		private void TXT_FirstName_TextChanged(object sender, EventArgs e)
@@ -41,12 +43,16 @@ namespace TrackerUI
 				model.PrizeAmount = Convert.ToDecimal(TXT_PrizeAmount.Text);
 				model.PrizePercentage = Convert.ToDouble(TXT_PrizePercent.Text);
 
-				GlobalConfig.Connection.CreatePrize(model);
+				model = GlobalConfig.Connection.CreatePrize(model);
 
-				TXT_PlaceName.Text = "";
-				TXT_PlaceNumber.Text = "";
-				TXT_PrizeAmount.Text = "0";
-				TXT_PrizePercent.Text = "0";
+				callingForm.PrizeComplete(model);
+
+				Close();
+
+				//TXT_PlaceName.Text = "";
+				//TXT_PlaceNumber.Text = "";
+				//TXT_PrizeAmount.Text = "0";
+				//TXT_PrizePercent.Text = "0";
 
 			}
 			else

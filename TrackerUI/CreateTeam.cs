@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,7 @@ namespace TrackerUI
 	{
 		private BindingList<PersonModel> availableTeamMembers = GlobalConfig.Connection.GetPerson_All();
 		private BindingList<PersonModel> selectedTeamMembers = new BindingList<PersonModel>();
+		ITeamRequestor callingForm;
 		private void WireUpLists()
 		{
 			CMB_SelectTeamMember.DataSource = availableTeamMembers;
@@ -24,9 +26,10 @@ namespace TrackerUI
 			LSB_TeamMembers.DataSource = selectedTeamMembers;
 			LSB_TeamMembers.DisplayMember = "FullName";
 		}
-		public CreateTeam()
+		public CreateTeam(ITeamRequestor caller)
 		{
 			InitializeComponent();
+			callingForm = caller;
 			WireUpLists();
 		}
 
@@ -117,7 +120,8 @@ namespace TrackerUI
 
 			GlobalConfig.Connection.CreateTeam(t);
 
-			// TODO - Reset Form after Creation of Team.
+			callingForm.TeamComplete(t);
+			Close();
 		}
 	}
 }

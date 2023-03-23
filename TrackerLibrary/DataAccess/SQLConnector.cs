@@ -108,7 +108,7 @@ namespace TrackerLibrary.DataAccess
             BindingList<TeamModel> bindingPeople;
             using (IDbConnection connection = new SqlConnection(GlobalConfig.CnnString(db)))
             {
-                output = connection.Query<TeamModel>("dbo.spTeam_GetAll").ToList();
+                output = connection.Query<TeamModel>("dbo.spTeams_GetAll").ToList();
 
                 foreach (TeamModel team in output)
                 {

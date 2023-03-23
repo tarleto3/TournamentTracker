@@ -78,7 +78,8 @@ namespace TrackerLibrary.DataAccess
 
         public BindingList<TeamModel> GetTeam_All()
         {
-            throw new NotImplementedException();
-        }
+			BindingList<TeamModel> teams = TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);
+			return teams;
+		}
     }
 }
